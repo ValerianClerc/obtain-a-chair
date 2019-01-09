@@ -1,0 +1,15 @@
+{
+  "name": "get-me-into-that-class-pls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valerian Clerc",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mcgill-minerva-api": "^0.1.0"
+  }
+}
