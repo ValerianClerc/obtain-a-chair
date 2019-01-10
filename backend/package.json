@@ -4,12 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Valerian Clerc",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "mcgill-minerva-api": "^0.1.0"
+    "mcgill-minerva-api": "^0.1.0",
+    "nodemon": "^1.18.9"
   }
 }
