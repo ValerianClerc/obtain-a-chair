@@ -35,33 +35,46 @@ app.post("/getCourse", (req, res) => {
     minerva
         .getCourses(courseInfo)
         .then(function (courses) {
-            console.log("MADE IT");
+            console.log("Course retrieved");
             console.log(courses);
             res.json(courses);
         })
         .catch(reject => {
-            console.log("FAILED");
+            console.log("Unable to get course");
             console.log(reject);
             res.json(reject);
         });
 
-   
-    
+
+
 });
 
 
 app.post('/addCourse', (req, res) => {
+
+    let password = req.body.pass;
+    let username = req.body.user;
+
+    let minerva = new Minerva(username, password); // or store 'em in environment MG_USER & MG_PASS
+
     newCourse = {
         season: req.body.season,
         year: req.body.year,
         crn: req.body.crn
     };
+    if (newCourse.season == null || newCourse.year == null || newCourse.crn == null) {
+        res.status(400).json({
+            msg: "Season, Year, or CRN was left empty"
+        })
+    }
     minerva.addCourses(newCourse)
         .then((resolve) => {
+            console.log('Course add attempted successfully')
             console.log(resolve);
             res.json(resolve);
         })
         .catch((reject) => {
+            console.log('Unable to try to add course')
             console.log(reject);
             res.json(reject);
         });
@@ -79,14 +92,14 @@ app.post('/getTranscript', (req, res) => {
     let minerva = new Minerva(username, password); // or store 'em in environment MG_USER & MG_PASS
 
     minerva.getTranscript()
-    .then(function(transcript) {
-        console.log(transcript);
-        res.json(transcript);
-    })
-    .catch(function(err) {
-        console.log(err);
-        res.json(err);
-    });
+        .then(function (transcript) {
+            console.log(transcript);
+            res.json(transcript);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json(err);
+        });
 
 });
 
