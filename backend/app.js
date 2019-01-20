@@ -34,7 +34,7 @@ app.post("/getCourse", (req, res) => {
 
   minerva
     .getCourses(courseInfo)
-    .then(function(courses) {
+    .then(function (courses) {
       console.log("Course retrieved");
       console.log(courses);
       res.json(courses);
@@ -84,6 +84,8 @@ app.post("/getTranscript", (req, res) => {
   let password = req.body.pass;
   let username = req.body.user;
 
+  console.log(req.body)
+
   console.log(`User : ${username}`);
   console.log(`Pass : ${password}`);
 
@@ -91,11 +93,11 @@ app.post("/getTranscript", (req, res) => {
 
   minerva
     .getTranscript()
-    .then(function(transcript) {
+    .then(function (transcript) {
       console.log(transcript);
       res.json(transcript);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
       res.json(err);
     });
