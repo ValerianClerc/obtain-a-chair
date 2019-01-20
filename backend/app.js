@@ -1,14 +1,23 @@
 const Minerva = require("mcgill-minerva-api"),
   express = require("express"),
-  bodyParser = require("body-parser");
+  bodyParser = require("body-parser"),
+  cors = require('cors');
 
 const app = express();
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true
+app.use(cors())
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.get("/test", (req, res, next) => {
+  console.log('test route!')
+  res.json({
+    msg: "successful response from test route!"
   })
-);
+})
 
 app.post("/getCourse", (req, res) => {
   let testJSON = {
