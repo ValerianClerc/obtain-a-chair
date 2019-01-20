@@ -37,7 +37,7 @@ app.post("/getCourse", (req, res) => {
   console.log(`User : ${username}`);
   console.log(`Pass : ${password}`);
 
-  console.log(`Course Info: ${courseInfo}`);
+  // console.log(`Course Info: ${courseInfo}`);
 
   let minerva = new Minerva(username, password);
 
